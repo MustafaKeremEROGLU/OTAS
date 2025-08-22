@@ -9,17 +9,39 @@
 
   <div class="container mt-5">
     <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-5">
+      <div class="col-md-8">
         <div class="card shadow-sm text-center">
           <div class="card-body">
-            <h1 class="card-title mb-4">ADMİN</h1>
+            <h1 class="card-title mb-4">ADMİN PANELE HOŞGELDİNİZ!</h1>
 
-            <div class="d-grid gap-3">
+            <div class="d-grid gap-3 mb-4">
               <a href="/" target="_blank" class="btn btn-outline-primary btn-lg">Ana Menüye Geri Dön</a>
               <a href="/sinif1" target="_blank" class="btn btn-outline-success btn-lg">Sınıf 1 (8/A)</a>
               <a href="/sinif2" target="_blank" class="btn btn-outline-warning btn-lg">Sınıf 2 (8/B)</a>
             </div>
-            
+
+            <!-- Input Alanları -->
+            <form action="/veri" method="POST">
+              <div class="row g-2">
+                <div class="col">
+                  <input type="text" class="form-control" name="deger1" placeholder="Sınıf">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="deger2" placeholder="Ders">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="deger3" placeholder="Tarih">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="deger4" placeholder="Kitap">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="deger5" placeholder="S. Numarası">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">Gönder</button>
+            </form>
+
           </div>
         </div>
       </div>
