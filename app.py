@@ -25,6 +25,23 @@ def index():
 def admin():
     return render_template("admin.html")
 
+@app.route("/veri", methods=["GET", "POST"])
+def veri():
+    deger1 = request.form.get("deger1")
+    deger2 = request.form.get("deger2")
+    deger3 = request.form.get("deger3")
+    deger4 = request.form.get("deger4")
+    deger5 = request.form.get("deger5")
+
+    print("Deger1:", deger1)
+    print("Deger2:", deger2)
+    print("Deger3:", deger3)
+    print("Deger4:", deger4)
+    print("Deger5:", deger5)
+
+    return render_template("veri.html")
+                    
+
 @app.route("/sinif1")
 def sinif1():
     return render_template("sinif1.html")
