@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ödev Detayları</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .text-correct { color: green; font-weight: bold; }
+    .text-wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Ödev Detayları</h2>
+        
+        <h5>Ödev ID: {{ odev['test_id'] }}</h5>
+        <h5>Sınıf Ortalaması: {{ ortalama }}</h5>
+
+        <table class="table table-bordered table-striped mt-4">
+          <thead class="table-secondary text-center">
+            <tr>
+              <th>Öğrenci Adı</th>
+              <th>Puan</th>
+              <th>Öğrenci Cevapları</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ogr in ogrenci_cevaplari %}
+            <tr>
+              <td>{{ ogr['ogrenci_adi'] }}</td>
+              <td class="text-center">{{ ogr['puan'] }} / {{ odev['cevaplar']|length }}</td>
+              <td>
+                {% for i in range(odev['cevaplar']|length) %}
+                  {% if ogr['cevaplar'][i]|upper == odev['cevaplar'][i]|upper %}
+                    <span class="text-correct">{{ ogr['cevaplar'][i]|upper }}</span>
+                  {% else %}
+                    <span class="text-wrong">{{ ogr['cevaplar'][i]|upper }}</span>
+                  {% endif %}
+                {% endfor %}
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="3" class="text-center">Henüz öğrenci cevabı yok.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <div class="text-center mt-4">
+          <a href="/admin" class="btn btn-outline-secondary">Admin Paneline Geri Dön</a
